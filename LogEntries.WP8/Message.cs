@@ -28,7 +28,7 @@ namespace LogEntries
 
         public Message(Dictionary<object, object> messages, Severity severity)
         {
-            Inilialize(String.Join(" ", messages.Select(o => o.Key.ToString() + "=" + o.Value.ToString()).ToList()), severity);           
+            Inilialize(String.Join(" ", messages.Select(o => o.Key.ToString() + "=" + o.Value.ToString()).ToList()), severity);
         }
 
         private void Inilialize(string message, Severity severity)

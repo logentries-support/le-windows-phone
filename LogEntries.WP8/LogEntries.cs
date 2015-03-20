@@ -298,11 +298,11 @@ namespace LogEntries
         {
             if (useSSL)
             {
-                Initialize(application, userToken, true, 20000);
+                Initialize(application, userToken, true, 443);
             }
             else
             {
-                Initialize(application, userToken, false, 10000);
+                Initialize(application, userToken, false, 80);
             }
         }
 
@@ -311,7 +311,7 @@ namespace LogEntries
         /// </summary>
         /// <param name="userToken">User token</param>
         /// <param name="useSSL">True if use SSL connection. default value is true</param>
-        /// <param name="port">Port number to connect to. default port number is 20000 for SSL and 10000 otherwise</param>
+        /// <param name="port">Port number to connect to. default port number is 443 for SSL and 80 otherwise</param>
         public static void Initialize(Application application, string userToken, bool useSSL, int port)
         {
             if (String.IsNullOrWhiteSpace(userToken))

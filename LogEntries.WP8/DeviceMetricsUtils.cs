@@ -9,7 +9,7 @@ using Windows.Networking.Connectivity;
 
 namespace LogEntries
 {
-    
+
     public static class DeviceMetricsUtils
     {
         #region K-V separators constants
@@ -81,7 +81,7 @@ namespace LogEntries
             public bool isWiFiEnabled { get; private set; }
 
             public readonly NetworkInterfaceList NetworkInterfaces;
-            
+
         }
 
         #endregion
@@ -120,10 +120,10 @@ namespace LogEntries
         /// This method returns serialized Device Unique ID.
         /// NOTE: To use it the application must have ID_CAP_IDENTITY_DEVICE capability
         /// checked in WMAppManifest.xml
-        /// 
-        /// If deafult parameter "ThrowOnError" is ommitted or ste to true - 
+        ///
+        /// If deafult parameter "ThrowOnError" is ommitted or ste to true -
         /// UnauthorizedAccessException will be thrown; empty Device ID will be returned otherwise.
-        /// 
+        ///
         /// </summary>
         /// <returns>Device ID string - 20 bytes </returns>
         public static string GetDeviceUniqueID(bool ThrowOnError = true)
