@@ -7,9 +7,9 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("LogEntries")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("This library provides support for sending logs to LogEntries' service")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("LogEntries")]
 [assembly: AssemblyProduct("LogEntries")]
 [assembly: AssemblyCopyright("LogEntries ©  2014")]
 [assembly: AssemblyTrademark("")]

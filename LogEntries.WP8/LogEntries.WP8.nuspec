@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <projectUrl>https://github.com/logentries-support/le-windows-phone</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Added support for obtaining Device Metrics and message trace appending.</releaseNotes>
+    <copyright>Copyright: LogEntries (c) 2015</copyright>  
+  </metadata>
+</package>

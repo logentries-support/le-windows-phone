@@ -1,0 +1,24 @@
+1. Download NuGet tool from here: http://nuget.codeplex.com/releases/view/121838 ; add the path to this tool to your %PATH%.
+2. Change directory to .\LogEntries.WP8 or .\LogEntries.WP7, depending on the version of Windows Phone you want to build the package for.
+3. Execute the following command to generate the package specification xml file: nuget spec
+4. In the generated nuspec file change <projectUrl>, <releaseNotes> and <copyright> nodes - these values are hard-coded; other ones, like <title> will be extracted from the csproj attributes.
+5. Delete <licenseUrl> and <iconUrl> nodes if they are not needed;
+6. Execute the following command to build the NuGet package: nuget pack LogEntries.WP8.csproj
+   Please, note, that you must have the project been built before packing it with NuGet.
+   Please, note, that you must specify a csproj, NOT a nuspec file!
+   Please, note, that if state just "nuget pack", NuGet will build the dafault configuration, which is, typically, "Debug". If you need to build a release version, please pass
+   "-Prop Configuration=Release" option to NuGet. If you also need to add all projects, that are referenced by the current one, please, state "-IncludeReferencedProjects" option.
+7. After the package is built, you may publish the package either via UI on http://www.nuget.org/ , or by using "nuget push" from command-line (in this case, you must provide
+the API Key using "nuget setApiKey Your-API-Key" command). Please, refer to https://docs.nuget.org/create/creating-and-publishing-a-package
+
+Troubleshooting.
+----------------
+
+1. If you get an error, like this one "The replacement token 'author' has no value.", please, fill all required properties in .csproj file:   
+[assembly: AssemblyTitle("LogEntries")]                                                                   -> used to fill $title$ property in nuspec;
+[assembly: AssemblyDescription("This library provides support for sending logs to LogEntries' service")]  -> used to fill $description$ in nuspec;
+[assembly: AssemblyCompany("LogEntries")]                                                                 -> used to fill $author$ in nuspec; 
+[assembly: AssemblyVersion("1.0.0.0")]                                                                    -> used to fill $id$ in nuspec.
+
+2. If you get an error like this one: "Unable to find 'D:\...\LogEntries.WP7\Bin\Release\LogEntries.dll'. Make sure the project has been built.", please, rebuild the project
+with REQUIRED configuration (in the example, this is "Release").

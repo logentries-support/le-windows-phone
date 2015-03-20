@@ -188,7 +188,7 @@ namespace LogEntries
 
         public static void UploadLogMessage(Message message, Action callback, Action error)
         {
-            string data = userToken + " " + message.ToString() + "\n";
+            string data = LogEntriesService.GetMsgTrace() + " " + userToken + " " + message.ToString() + "\n";
 
             if (IsConnected)
             {

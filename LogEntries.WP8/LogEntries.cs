@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
@@ -8,6 +9,7 @@ namespace LogEntries
 {
     public static class LogEntriesService
     {
+        private const int TRACE_LENGTH = 8; // Message trace default length.
         /// <summary>
         /// Wait for n seconds to upload log message again
         /// </summary>
@@ -32,6 +34,8 @@ namespace LogEntries
         /// object for synchronization threads
         /// </summary>
         private static object sync = new object();
+
+        private static string msgTrace = GenerateMsgTraceString(); // Unique trace message for the current lib. instance.
 
         private static List<Message> messagesQueue;
         /// <summary>
@@ -261,6 +265,19 @@ namespace LogEntries
             uploadInProgress = false;
 
             StartSync();
+        }
+
+        private static string GenerateMsgTraceString()
+        {
+            const string ALPHANUM_SRC = "A0B0CD1E1F2G2H3I3J4K4L5MN56O6P7Q7R8S8T9U9VWXYZ";
+            Random rnd = new Random((int) DateTime.Now.Ticks & 0x0000FFFF);
+            return new string(Enumerable.Repeat(ALPHANUM_SRC, TRACE_LENGTH).
+                Select(sel => sel[rnd.Next(ALPHANUM_SRC.Length)]).ToArray());
+        }
+
+        public static string GetMsgTrace()
+        {
+            return msgTrace;
         }
 
         /// <summary>
