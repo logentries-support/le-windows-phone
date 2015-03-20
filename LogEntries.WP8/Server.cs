@@ -12,8 +12,6 @@ namespace LogEntries
     {
         // Logentries API server address
         private const string hostName = "data.logentries.com";
-        // Logentries secure API server address
-        private const string hostSecureName = "api.logentries.com";
         // Port number to connect to
         public static int portNumber { get; set; }
         // User token
@@ -24,7 +22,7 @@ namespace LogEntries
         private static Socket socket = null;
         // Secure Socket object that will be used to send data
         private static SecureTcpClient secureSocket = null;
-        
+
         static Server()
         {
             useSSL = true;
@@ -52,7 +50,7 @@ namespace LogEntries
             {
                 try
                 {
-                    secureSocket = new SecureTcpClient(hostSecureName, portNumber);
+                    secureSocket = new SecureTcpClient(hostName, portNumber);
 
                     callback();
                 }
@@ -68,7 +66,7 @@ namespace LogEntries
                     // Create DnsEndPoint. The hostName and port are passed in to this method.
                     DnsEndPoint hostEntry = new DnsEndPoint(hostName, portNumber);
 
-                    // Create a stream-based, TCP socket using the InterNetwork Address Family. 
+                    // Create a stream-based, TCP socket using the InterNetwork Address Family.
                     socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
                     // Create a SocketAsyncEventArgs object to be used in the connection request
@@ -148,7 +146,7 @@ namespace LogEntries
                 }
             }
             else
-            {                
+            {
                 try
                 {
                     // Create SocketAsyncEventArgs context object

@@ -14,10 +14,10 @@ the API Key using "nuget setApiKey Your-API-Key" command). Please, refer to http
 Troubleshooting.
 ----------------
 
-1. If you get an error, like this one "The replacement token 'author' has no value.", please, fill all required properties in .csproj file:   
+1. If you get an error, like this one "The replacement token 'author' has no value.", please, fill all required properties in .csproj file:
 [assembly: AssemblyTitle("LogEntries")]                                                                   -> used to fill $title$ property in nuspec;
 [assembly: AssemblyDescription("This library provides support for sending logs to LogEntries' service")]  -> used to fill $description$ in nuspec;
-[assembly: AssemblyCompany("LogEntries")]                                                                 -> used to fill $author$ in nuspec; 
+[assembly: AssemblyCompany("LogEntries")]                                                                 -> used to fill $author$ in nuspec;
 [assembly: AssemblyVersion("1.0.0.0")]                                                                    -> used to fill $id$ in nuspec.
 
 2. If you get an error like this one: "Unable to find 'D:\...\LogEntries.WP7\Bin\Release\LogEntries.dll'. Make sure the project has been built.", please, rebuild the project
