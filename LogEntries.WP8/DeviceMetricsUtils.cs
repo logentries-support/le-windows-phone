@@ -34,7 +34,7 @@ namespace LogEntries
             const string WIFI_KEY_NAME = "Wifi";
 
             // Interface Info keys names.
-            const string INTERFACE_KEY_NAME = "IntefaceName";
+            const string INTERFACE_KEY_NAME = "InterfaceName";
             const string INTERFACE_TYPE_KEY_NAME = "InterfaceType";
             const string INTERFACE_SUBTYPE_KEY_NAME = "InterfaceSubType";
             const string INTERFACE_BANDWIDTH_KEY_NAME = "InterfaceBandwidth";
